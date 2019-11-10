@@ -1,0 +1,35 @@
+<input> 5 3
+read 1
+read 2
+
+; if (r1 - r2 > 0)
+load 2
+sub 1
+
+jgtz skipif
+    ; меняем местами
+    load 1
+    store 3
+    load 2
+    store 1
+    load 3
+    store 2
+skipif:
+
+load =0
+store 3
+while:
+load 1
+jz end
+    sub =1
+    store 1
+
+    load 3
+    add 2
+    store 3
+jmp while
+
+end:
+write 3
+
+halt
