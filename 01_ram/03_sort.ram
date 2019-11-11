@@ -1,0 +1,91 @@
+<input> 5 10 11 12 13 14
+
+
+read 0 ; количество элементов в массиве
+jz end
+
+store 1
+store 2
+
+load =10
+store 3
+
+input:
+    read *3
+
+    load 3
+    add =1
+    store 3
+
+    load 2
+    sub =1
+    store 2
+jgtz input
+
+; sort
+load 1
+store 2
+load =10
+store 3
+
+outer:
+    load 3 ; *3 is arr[i]
+    store 5
+
+    load 2 ; r2 is i
+    store 4
+
+    inner:
+
+        ; if (*r5 - *r3 > 0)
+        load *5
+        sub *3
+
+        jgtz skipif
+            ; меняем местами
+            load *3
+            store 6
+            load *5
+            store *3
+            load 6
+            store *5
+        skipif:
+
+        load 5 ; *5 is arr[k]
+        add =1
+        store 5
+
+        load 4 ; r4 is k
+        sub =1
+        store 4
+
+    jgtz inner
+
+    load 3 ; *3 is arr[i]
+    add =1
+    store 3
+
+    load 2 ; r2 is i
+    sub =1
+    store 2
+jgtz outer
+
+load 1
+store 2
+load =10
+store 3
+
+output:
+    write *3
+
+    load 3
+    add =1
+    store 3
+
+    load 2
+    sub =1
+    store 2
+jgtz output
+
+end:
+halt
