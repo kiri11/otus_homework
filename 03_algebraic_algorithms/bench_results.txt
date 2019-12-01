@@ -1,0 +1,18 @@
+Exponentiation Algorithms:
+100 ** 100	Built-in: 0.000004s. Binary: 0.000005s. Two-step: 0.000009s. Multiplication: 0.000013s.
+2 ** 1024	Built-in: 0.000003s. Binary: 0.000008s. Two-step: 0.000089s. Multiplication: 0.000113s.
+3 ** 1024	Built-in: 0.000005s. Binary: 0.000013s. Two-step: 0.000110s. Multiplication: 0.000136s.
+300 ** 1024	Built-in: 0.000055s. Binary: 0.000174s. Two-step: 0.000392s. Multiplication: 0.000480s.
+2 ** 873459	Built-in: 0.009292s. Binary: 0.013583s. Two-step: 14.134159s. Multiplication: 22.297028s.
+5 ** 873459	Built-in: 0.361313s. Binary: 1.025274s. Two-step: 32.843591s. Multiplication: 53.124370s.
+
+Fibonacci Algorithms:
+N=10		Recursion: 0.000021s. Dynamic: 0.000003s. Matrix: 0.000021s.
+N=30		Recursion: 0.259623s. Dynamic: 0.000004s. Matrix: 0.000020s.
+N=35		Recursion: 2.896600s. Dynamic: 0.000005s. Matrix: 0.000021s.
+N=36		Recursion: 4.683534s. Dynamic: 0.000005s. Matrix: 0.000021s.
+N=100		Dynamic: 0.000008s. Matrix: 0.000021s.
+N=1000		Dynamic: 0.000172s. Matrix: 0.000050s.
+N=10000		Dynamic: 0.012266s. Matrix: 0.001337s.
+N=100000		Dynamic: 1.133506s. Matrix: 0.045640s.
+N=1000000		Dynamic: 110.937088s. Matrix: 1.621800s.
