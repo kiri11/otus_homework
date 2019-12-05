@@ -17,7 +17,7 @@ def check_func(func, in_file):
 
 def setbitcount(num):
     """Calculate number of set bits in a positive int number"""
-    return sum(int(bit) for bit in bin(num)[2:])
+    return bin(num).count('1')
 
 
 def knight_solver(input_txt):
