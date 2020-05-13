@@ -23,7 +23,11 @@ def run_tests(func, folder='.'):
 
 def setbitcount(num):
     """Calculate number of set bits in a positive int number"""
-    return bin(num).count('1')
+    cnt = 0
+    while num > 0:
+        num &= num - 1
+        cnt += 1
+    return cnt
 
 
 def solver(figure_class):
