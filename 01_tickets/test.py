@@ -16,6 +16,6 @@ def check_func(func, in_file, strip_expected=True):
                 print("%s fail.\nExpected:\n%s\nActual:\n%s" % (test_name, expected, actual))
 
 
-def run_tests(func, folder='.'):
+def run_tests(func, folder='.', preprocess=None):
     for path in Path(folder).glob('test*.in'):
         check_func(func, path)
