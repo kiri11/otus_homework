@@ -1,3 +1,6 @@
+from tester import check_chess_class
+
+
 class King:
     nA = 0xFeFeFeFeFeFeFeFe
     nH = 0x7f7f7f7f7f7f7f7f
@@ -16,14 +19,5 @@ class King:
         return "\n".join(str(getattr(self, figure)) for figure in "PNBRQKpnbrqk")
 
 
-def setbitcount(num):
-    """Calculate number of set bits in a positive int number"""
-    return bin(num).count('1')
-
-
-def king_solver(input_txt):
-    n = King(int(input_txt.strip()))
-    moves = n.valid_moves()
-    moves_count = setbitcount(moves)
-    return "%s\n%s" % (moves_count, moves)
-
+if __name__ == "__main__":
+    check_chess_class(King)

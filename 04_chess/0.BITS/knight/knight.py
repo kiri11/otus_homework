@@ -1,3 +1,6 @@
+from tester import check_chess_class
+
+
 class Knight:
     nA = 0xFeFeFeFeFeFeFeFe
     nAB = 0xFcFcFcFcFcFcFcFc
@@ -15,3 +18,7 @@ class Knight:
 
     def __str__(self):
         return "\n".join(str(getattr(self, figure)) for figure in "PNBRQKpnbrqk")
+
+
+if __name__ == "__main__":
+    check_chess_class(Knight)

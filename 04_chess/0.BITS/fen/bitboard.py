@@ -1,4 +1,5 @@
 from itertools import chain
+from tester import run_tests
 
 
 class Board:
@@ -29,3 +30,12 @@ class Board:
 
     def __str__(self):
         return "\n".join(str(getattr(self, figure)) for figure in "PNBRQKpnbrqk")
+
+
+def board_reader(input_txt):
+    b = Board(input_txt.strip())
+    return str(b)
+
+
+if __name__ == "__main__":
+    run_tests(board_reader)

@@ -1,5 +1,4 @@
 from pathlib import Path
-from king import King
 
 
 def check_func(func, in_file, strip_expected=True):
@@ -17,15 +16,24 @@ def check_func(func, in_file, strip_expected=True):
                 print("%s fail.\nExpected:\n%s\nActual:\n%s" % (test_name, expected, actual))
 
 
-
-
-
-
-
 def run_tests(func, folder='.'):
     for path in Path(folder).glob('test*.in'):
         check_func(func, path)
 
 
-if __name__ == "__main__":
-    run_tests()
+def setbitcount(num):
+    """Calculate number of set bits in a positive int number"""
+    return bin(num).count('1')
+
+
+def solver(figure_class):
+    def solver_func(input_txt):
+        n = figure_class(int(input_txt.strip()))
+        moves = n.valid_moves()
+        moves_count = setbitcount(moves)
+        return "%s\n%s" % (moves_count, moves)
+    return solver_func
+
+
+def check_chess_class(chess_class):
+    run_tests(solver(chess_class))
