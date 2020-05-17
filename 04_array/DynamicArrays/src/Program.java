@@ -10,11 +10,12 @@ public class Program {
         IArray factorArray = new FactorArray();
         IArray matrixArray = new MatrixArray();
         IArray builtinArray = new ArrayListWrapper();
-        testAddArray(singleArray, 100_000);
-        testAddArray(vectorArray, 100_000);
-        testAddArray(factorArray, 100_000);
-        testAddArray(matrixArray, 100_000);
-        testAddArray(builtinArray, 100_000);
+        int N = 1000_000;
+        testAddArray(singleArray, 1000_00);
+        testAddArray(vectorArray, N);
+        testAddArray(factorArray, N);
+        testAddArray(matrixArray, N);
+        testAddArray(builtinArray, N);
     }
 
     private static void testAddArray(IArray data, int total) {
