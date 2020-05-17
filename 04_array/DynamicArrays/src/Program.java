@@ -10,8 +10,8 @@ public class Program {
         IArray factorArray = new FactorArray();
         IArray matrixArray = new MatrixArray();
         IArray builtinArray = new ArrayListWrapper();
-        int N = 1000_000;
-        testAddArray(singleArray, 1000_00);
+        int N = 100_000;
+        testAddArray(singleArray, N);
         testAddArray(vectorArray, N);
         testAddArray(factorArray, N);
         testAddArray(matrixArray, N);
