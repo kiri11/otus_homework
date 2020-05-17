@@ -3,11 +3,11 @@ package model;
 public class VectorArray<T> implements IArray<T> {
 
     private Object[] array;
-    private int vector;
+    private final int step;
     private int size;
 
-    public VectorArray(int vector) {
-        this.vector = vector;
+    public VectorArray(int step) {
+        this.step = step;
         array = new Object[0];
         size = 0;
     }
@@ -23,10 +23,27 @@ public class VectorArray<T> implements IArray<T> {
 
     @Override
     public void add(T item) {
-        if (size() == array.length)
-            resize();
-        array[size] = item;
+        add(item, size());
+    }
+
+    @Override
+    public void add(T item, int index) {
+        if (size() == array.length) {
+            Object[] newArray = new Object[size() + step];
+            System.arraycopy(array, 0, newArray, 0, index);
+            System.arraycopy(array, index, newArray, index + 1, size() - index);
+            array = newArray;
+        }
+        array[index] = item;
         size++;
+    }
+
+    @Override
+    public T remove(int index) {
+        T res = get(index);
+        System.arraycopy(array, index, array, index - 1, size() - index -1);
+        size--;
+        return res;
     }
 
     @Override
@@ -35,9 +52,4 @@ public class VectorArray<T> implements IArray<T> {
         return (T)array[index];
     }
 
-    private void resize() {
-        Object[] newArray = new Object[array.length + vector];
-        System.arraycopy(array, 0, newArray, 0, array.length);
-        array = newArray;
-    }
 }

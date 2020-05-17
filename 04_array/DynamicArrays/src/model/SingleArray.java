@@ -18,12 +18,12 @@ public class SingleArray<T> implements IArray<T> {
         add(item, size());
     }
 
-    // @Override
+    @Override
     public void add(T item, int index) {
         Object[] newArray = new Object[size() + 1];
         System.arraycopy(array, 0, newArray, 0, index);
-        newArray[index] = item;
         System.arraycopy(array, index, newArray, index+1, size()-index);
+        newArray[index] = item;
         array = newArray;
     }
 
@@ -33,11 +33,11 @@ public class SingleArray<T> implements IArray<T> {
         return (T)array[index];
     }
 
-    // @Override
+    @Override
     public T remove(int index){
         Object[] newArray = new Object[size() - 1];
-        System.arraycopy(array, 0, newArray, 0, index);
         T res = get(index);
+        System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(array, index, newArray, index+1, size()-index-1);
         array = newArray;
         return res;

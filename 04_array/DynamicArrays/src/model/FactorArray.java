@@ -3,7 +3,7 @@ package model;
 public class FactorArray<T> implements IArray<T> {
 
     private Object[] array;
-    private int factor;
+    private final int factor;
     private int size;
 
     public FactorArray(int factor, int initLength) {
@@ -13,7 +13,7 @@ public class FactorArray<T> implements IArray<T> {
     }
 
     public FactorArray() {
-        this(50, 10);
+        this(2, 10);
     }
 
     @Override
@@ -23,10 +23,27 @@ public class FactorArray<T> implements IArray<T> {
 
     @Override
     public void add(T item) {
-        if (size() == array.length)
-            resize();
-        array[size] = item;
+        add(item, size());
+    }
+
+    @Override
+    public void add(T item, int index) {
+        if (size() == array.length) {
+            Object[] newArray = new Object[array.length + array.length * factor];
+            System.arraycopy(array, 0, newArray, 0, index);
+            System.arraycopy(array, index, newArray, index + 1, size() - index);
+            array = newArray;
+        }
+        array[index] = item;
         size++;
+    }
+
+    @Override
+    public T remove(int index) {
+        T res = get(index);
+        System.arraycopy(array, index, array, index - 1, size() - index -1);
+        size--;
+        return res;
     }
 
     @Override
@@ -35,9 +52,4 @@ public class FactorArray<T> implements IArray<T> {
         return (T)array[index];
     }
 
-    private void resize() {
-        Object[] newArray = new Object[array.length + array.length * factor / 100];
-        System.arraycopy(array, 0, newArray, 0, array.length);
-        array = newArray;
-    }
 }
