@@ -1,0 +1,55 @@
+N       time         test
+
+1. Bubble Sort
+
+1	    0.000004s	 digits\test.0.in pass
+10	    0.000020s	 digits\test.1.in pass
+100	    0.001108s	 digits\test.2.in pass
+1000	0.108563s	 digits\test.3.in pass
+10000	10.741984s	 digits\test.4.in pass
+100000	1074.310686s digits\test.5.in pass
+
+1	    0.000004s	 tests\random\test.0.in pass
+10	    0.000019s	 tests\random\test.1.in pass
+100	    0.001363s	 tests\random\test.2.in pass
+1000	0.146099s	 tests\random\test.3.in pass
+10000	14.610801s	 tests\random\test.4.in pass
+
+1	    0.000005s	 tests\revers\test.0.in pass
+10	    0.000022s	 tests\revers\test.1.in pass
+100	    0.001724s	 tests\revers\test.2.in pass
+1000	0.184013s	 tests\revers\test.3.in pass
+10000	18.599942s	 tests\revers\test.4.in pass
+
+1	    0.000004s	 tests\sorted\test.0.in pass
+10	    0.000019s	 tests\sorted\test.1.in pass
+100	    0.001066s	 tests\sorted\test.2.in pass
+1000	0.106489s	 tests\sorted\test.3.in pass
+10000	10.947777s	 tests\sorted\test.4.in pass
+
+2 Insertion Sort
+
+1	    0.000004s	 tests\sorted\test.0.in pass
+10	    0.000010s	 tests\sorted\test.1.in pass
+100	    0.000068s	 tests\sorted\test.2.in pass
+1000	0.002648s	 tests\sorted\test.3.in pass
+10000	0.233668s	 tests\sorted\test.4.in pass
+100000	24.264793s	 tests\sorted\test.5.in pass
+
+1	0.000004s	 tests\random\test.0.in pass
+10	0.000012s	 tests\random\test.1.in pass
+100	0.000721s	 tests\random\test.2.in pass
+1000	0.084733s	 tests\random\test.3.in pass
+10000	8.702801s	 tests\random\test.4.in pass
+
+1	0.000004s	 tests\digits\test.0.in pass
+10	0.000014s	 tests\digits\test.1.in pass
+100	0.001101s	 tests\digits\test.2.in pass
+1000	0.076534s	 tests\digits\test.3.in pass
+10000	7.649628s	 tests\digits\test.4.in pass
+
+1	0.000004s	 tests\revers\test.0.in pass
+10	0.000019s	 tests\revers\test.1.in pass
+100	0.001528s	 tests\revers\test.2.in pass
+1000	0.165192s	 tests\revers\test.3.in pass
+10000	16.828584s	 tests\revers\test.4.in pass
