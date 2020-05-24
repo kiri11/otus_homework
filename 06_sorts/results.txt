@@ -1,55 +1,56 @@
-N       time         test
+Bubble Sort
 
-1. Bubble Sort
+N       random       digits       sorted        reversed
+10^0    0.000004s   0.000004s	  0.000004s   0.000005s
+10^1    0.000019s   0.000020s	  0.000019s   0.000022s
+10^2    0.001363s   0.001108s	  0.001066s   0.001724s
+10^3    0.146099s   0.108563s	  0.106489s   0.184013s
+10^4    14.610801s  10.741984s	  10.947777s  18.599942s
+10^5	            1074.310686s
 
-1	    0.000004s	 digits\test.0.in pass
-10	    0.000020s	 digits\test.1.in pass
-100	    0.001108s	 digits\test.2.in pass
-1000	0.108563s	 digits\test.3.in pass
-10000	10.741984s	 digits\test.4.in pass
-100000	1074.310686s digits\test.5.in pass
+Insertion Sort
 
-1	    0.000004s	 tests\random\test.0.in pass
-10	    0.000019s	 tests\random\test.1.in pass
-100	    0.001363s	 tests\random\test.2.in pass
-1000	0.146099s	 tests\random\test.3.in pass
-10000	14.610801s	 tests\random\test.4.in pass
+N       random       digits       sorted     reversed
+10^0    0.000004s	 0.000004s  0.000004s   0.000004s
+10^1    0.000012s	 0.000014s  0.000010s   0.000019s
+10^2    0.000721s	 0.001101s  0.000068s   0.001528s
+10^3	0.084733s	 0.076534s  0.002648s   0.165192s
+10^4	8.702801s	 7.649628s  0.233668s   16.828584s
+10^5                            24.264793s
 
-1	    0.000005s	 tests\revers\test.0.in pass
-10	    0.000022s	 tests\revers\test.1.in pass
-100	    0.001724s	 tests\revers\test.2.in pass
-1000	0.184013s	 tests\revers\test.3.in pass
-10000	18.599942s	 tests\revers\test.4.in pass
 
-1	    0.000004s	 tests\sorted\test.0.in pass
-10	    0.000019s	 tests\sorted\test.1.in pass
-100	    0.001066s	 tests\sorted\test.2.in pass
-1000	0.106489s	 tests\sorted\test.3.in pass
-10000	10.947777s	 tests\sorted\test.4.in pass
+Classic Shell
 
-2 Insertion Sort
+N       random       digits       sorted     reversed
+10^0    0.000006s   0.000005s   0.000005s   0.000005s
+10^1    0.000014s   0.000015s   0.000012s   0.000016s
+10^2    0.000208s   0.000162s   0.000135s   0.000164s
+10^3    0.003838s   0.002453s   0.002442s   0.002879s
+10^4    0.065672s   0.035056s   0.040848s   0.042148s
+10^5    1.260325s   0.438301s   0.707890s   0.571113s
+10^6    19.675935s  5.287502s   10.056982s  6.734889s
+10^7    319.830954s 63.461520s  163.441901s 80.349073s
 
-1	    0.000004s	 tests\sorted\test.0.in pass
-10	    0.000010s	 tests\sorted\test.1.in pass
-100	    0.000068s	 tests\sorted\test.2.in pass
-1000	0.002648s	 tests\sorted\test.3.in pass
-10000	0.233668s	 tests\sorted\test.4.in pass
-100000	24.264793s	 tests\sorted\test.5.in pass
+Optimal Shell Extended
 
-1	0.000004s	 tests\random\test.0.in pass
-10	0.000012s	 tests\random\test.1.in pass
-100	0.000721s	 tests\random\test.2.in pass
-1000	0.084733s	 tests\random\test.3.in pass
-10000	8.702801s	 tests\random\test.4.in pass
+N       random       digits       sorted     reversed
+10^0    0.000006s   0.000006s   0.000006s   0.000006s
+10^1    0.000012s   0.000013s   0.000011s   0.000012s
+10^2    0.000156s   0.000121s   0.000096s   0.000139s
+10^3    0.002901s   0.001822s   0.001912s   0.002088s
+10^4    0.044961s   0.024133s   0.032312s   0.029896s
+10^5    0.667172s   0.310267s   0.486387s   0.384540s
+10^6    9.252982s   3.715460s   6.579818s   4.965207s
+10^7    121.904595s 43.233068s  84.107613s  58.384111s
 
-1	0.000004s	 tests\digits\test.0.in pass
-10	0.000014s	 tests\digits\test.1.in pass
-100	0.001101s	 tests\digits\test.2.in pass
-1000	0.076534s	 tests\digits\test.3.in pass
-10000	7.649628s	 tests\digits\test.4.in pass
+Papernov & Stasevich, 1965, O(N^(3/2)) worst case
 
-1	0.000004s	 tests\revers\test.0.in pass
-10	0.000019s	 tests\revers\test.1.in pass
-100	0.001528s	 tests\revers\test.2.in pass
-1000	0.165192s	 tests\revers\test.3.in pass
-10000	16.828584s	 tests\revers\test.4.in pass
+N       random       digits       sorted     reversed
+10^0    0.000004s   0.000004s   0.000004s   0.000004s
+10^1    0.000016s   0.000016s   0.000014s   0.000015s
+10^2    0.000190s   0.000165s   0.000138s   0.000161s
+10^3    0.003352s   0.002482s   0.002470s   0.002537s
+10^4    0.061094s   0.032288s   0.037459s   0.034056s
+10^5    1.022742s   0.405147s   0.591267s   0.444548s
+10^6    17.130349s  4.865028s   8.820885s   5.619819s
+10^7    309.930616s 55.610490s  138.898356s 63.802813s

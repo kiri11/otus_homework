@@ -1,40 +1,38 @@
 from tester import run_tests
 from benchmark import bench_array
+from math import floor
 
 
 def classic_shell(n):
+    # Original Shell gap sequence, 1959, O(N^2) worst case
     while n > 0:
         n //= 2
         yield n
 
 
-ci01 = [701, 301, 132, 57, 23, 10, 4, 1]
+def ps65(n):
+    # Papernov & Stasevich, 1965, O(N^(3/2)) worst case
+    seq = [1]
+    k = 1
+    elem = 2
+    while elem < n:
+        seq.append(elem)
+        elem = 2 ** k + 1
+        k += 1
+    return reversed(seq)
 
 
-def shell_sort_1(array):
-    increment = len(array) // 2
-    while increment > 0:
-
-        for startPosition in range(increment):
-            gap_insertion_sort(array, startPosition, increment)
-
-        increment //= 2
-
-
-def gap_insertion_sort(array, low, gap):
-    for i in range(low + gap, len(array), gap):
-        currentvalue = array[i]
-        position = i
-
-        while position >= gap and array[position - gap] > currentvalue:
-            array[position] = array[position - gap]
-            position = position - gap
-
-        array[position] = currentvalue
+def ci_01(n):
+    # Optimal (best known) sequence of increments for shell sort algorithm.
+    ci01 = [1, 4, 10, 23, 57, 132, 301, 701, 1750]
+    # Extend the sequence
+    while ci01[-1] < n:
+        ci01.append(floor(2.25*ci01[-1]))
+    return reversed(ci01)
 
 
-def shell_sort(gaps):
-    def shell_sort_partial(a):
+def shell_sort_partial(gaps):
+    def shell_sort(a):
         n = len(a)
         for gap in gaps(n):
             # Do a gapped insertion sort for this gap size.
@@ -51,8 +49,10 @@ def shell_sort(gaps):
                     j -= gap
                 # put temp (the original a[i]) in its correct location
                 a[j] = temp
-    return shell_sort_partial
+    return shell_sort
 
 
 if __name__ == "__main__":
-    run_tests(shell_sort(classic_shell), bench_array, "tests/random")
+    for gap_sequence in (classic_shell, ps65, ci_01):
+        for test_type in ("random", "digits", "sorted", "revers"):
+            run_tests(shell_sort_partial(gap_sequence), bench_array, "tests/" + test_type)
