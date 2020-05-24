@@ -21,4 +21,5 @@ def insertion_sort(arr):
 
 
 if __name__ == "__main__":
-    run_tests(insertion_sort, bench_array, "tests/revers")
+    for test_type in ("random", "digits", "sorted", "revers"):
+        run_tests(insertion_sort, bench_array, "five/" + test_type)
