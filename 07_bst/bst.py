@@ -1,3 +1,8 @@
+from timeit import timeit
+from random import randrange
+import sys
+
+
 class Node:
     def __init__(self, key):
         self.left = None
@@ -87,7 +92,31 @@ class BST:
             self.print_in_order(node.right)
 
 
-if __name__ == "__main__":
+def main(tree_size):
+    sys.setrecursionlimit(tree_size + 10)
+    sorted_tree = BST()
+    random_tree = BST()
+    for i in range(tree_size):
+        sorted_tree.insert(i)
+        random_tree.insert(randrange(tree_size))
+
+    def find_nodes(tree: BST):
+        for _ in range(tree_size // 10):
+            key = randrange(tree_size)
+            tree.key_exists(key)
+
+    def delete_nodes(tree: BST):
+        for _ in range(tree_size // 10):
+            key = randrange(tree_size)
+            tree.remove(tree.root, key)
+
+    for func in find_nodes, delete_nodes:
+        for tree_name in ('sorted_tree', 'random_tree'):
+            running_time = timeit('%s(%s)' % (func.__name__, tree_name), number=1, globals=locals())
+            print("%s %s\t%fs" % (tree_name, func.__name__, running_time))
+
+
+def test():
     bst = BST()
     for i in [1, 3, 5, 2, 4, 6, 234, 0, -1, 3, 36756]:
         bst.insert(i)
@@ -96,3 +125,7 @@ if __name__ == "__main__":
     bst.remove(bst.root, 3)
     bst.remove(bst.root, 6)
     bst.print_in_order()
+
+
+if __name__ == "__main__":
+    main(2000)

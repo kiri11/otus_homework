@@ -1,0 +1,3 @@
+(2000 nodes)  find_nodes  delete_nodes
+sorted_tree    0.017445s   0.037945s
+random_tree    0.000413s   0.000714s
