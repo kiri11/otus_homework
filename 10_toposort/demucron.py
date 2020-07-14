@@ -10,26 +10,26 @@ def graph_to_adj_matrix(graph: List[List[int]]):
     return adj_matrix
 
 
-def demurcon(adj_matrix: List[List[int]]):
+def demurcon(adj_matrix: List[List[int]]) -> List[List[int]]:
     adj_matrix_transposed = zip(*adj_matrix)
     in_counts = [sum(line) for line in adj_matrix_transposed]
     n = len(adj_matrix)
-    result = []
-    while len(result) < n:
-        has_cycle = True
+    levels = []
+    while len(levels) < n:
         for v, cnt in enumerate(in_counts):
+            levels.append([])
             if cnt == 0:
                 # remove line v
                 for i in range(n):
                     in_counts[i] -= adj_matrix[v][i]
                 in_counts[v] = -1  # processed
-                result.append(v)
-                has_cycle = False
-        if has_cycle:
+                levels[-1].append(v)
+        if not levels[-1]:
+            # if nothing added, we have a cycle, can't sort
             return []
-    return result
+    return levels
 
 
-def toposort(graph: List[List[int]]) -> List[int]:
+def toposort(graph: List[List[int]]) -> List[List[int]]:
     adj_matrix = graph_to_adj_matrix(graph)
     return demurcon(adj_matrix)
